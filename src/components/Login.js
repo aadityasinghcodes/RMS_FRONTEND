@@ -45,8 +45,12 @@ const Login = () => {
             // const accessToken = response?.data?.accessToken;
             // const roles = response?.data?.roles;
             // setAuth({ user, pwd, roles, accessToken });
-            const accessToken = response?.data?.accessToken;
-            setAuth({ userName, password, accessToken });
+            const accessToken = response?.data?.user?.accesstoken;
+const refreshToken = response?.data?.user?.refreshtoken;
+const userId = response?.data?.user?.id;
+const name = response?.data?.user?.name;
+
+setAuth({ userName, accessToken, refreshToken, userId, name });
             setUser('');
             setPwd('');
             navigate(from, { replace: true });
